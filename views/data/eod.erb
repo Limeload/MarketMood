@@ -1,29 +1,38 @@
+<div class="text-center">
+     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Historical end of day data for <%= params[:symbol] %>  </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">US stocks, adjusted for splits. </p>
+    </div>
+     <img src="images/historical.png" alt="historical" class="w-[25rem]" />
+    <div>
+  <dl class="mt-5 grid grid-cols-1 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-1 md:divide-x md:divide-y-0">
+    <% @eod_data.each do |entry| %>
+      <div class="px-4 py-5 sm:p-6">
+        <dt class="text-base font-normal text-gray-900">Date: <%= entry["date"] %></dt>
+        <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
+          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">
+            Open: $<%= entry["open"] %>
+          </div>
+          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">
+            High: $<%= entry["high"] %>
+          </div>
+          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">
+            Low: $<%= entry["low"] %>
+          </div>
+          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">
+            Close: $<%= entry["close"] %>
+          </div>
+          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">
+            Volume: <%= entry["volume"] %>
+          </div>
+        </dd>
+      </div>
+    <% end %>
+  </dl>
+</div>
+
+
 <% if @error_message %>
   <p><%= @error_message %></p>
 <% else %>
-  <h1>End of Day Data for <%= params[:symbol] %></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Open</th>
-        <th>High</th>
-        <th>Low</th>
-        <th>Close</th>
-        <th>Volume</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @eod_data.each do |entry| %>
-        <tr>
-          <td><%= entry["date"] %></td>
-          <td><%= entry["open"] %></td>
-          <td><%= entry["high"] %></td>
-          <td><%= entry["low"] %></td>
-          <td><%= entry["close"] %></td>
-          <td><%= entry["volume"] %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <!-- The EOD data table is already displayed above -->
 <% end %>

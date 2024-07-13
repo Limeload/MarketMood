@@ -168,9 +168,7 @@
         <main class="py-10">
           <div class="px-4 sm:px-6 lg:px-8">
             <div id="Dashboard Content" class="page-content">
-           <h1 class="text-2xl font-semibold text-gray-900"> Welcome to Market Mood</h1>
-
-              <p class="mt-4 text-sm text-gray-500"> History</p>
+            <%= erb(:'data/sentiment')%>
             </div>
             <div id="News Content" class="page-content hidden">
              <%= erb(:'data/news')%>
@@ -179,8 +177,7 @@
              <%= erb(:'data/intraday_data')%>
             </div>
             <div id="Historical Content" class="page-content hidden">
-              <h1 class="text-2xl font-semibold text-gray-900">Historical Sentiment Analysis</h1>
-              <p class="mt-4 text-sm text-gray-500">Content for historical sentiment analysis will be displayed here.</p>
+             <%= erb(:'data/eod')%>
             </div>
             <div id="Stock Price Correlation Content" class="page-content hidden">
               <%= erb(:'data/stocks_data')%>
