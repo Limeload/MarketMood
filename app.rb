@@ -93,8 +93,4 @@ get("/dashboard") do
   erb(:'skeleton/dashboard')
 end
 
-get("/news_content") do
-  erb(:'data/news', layout: false)
-end
-
 
