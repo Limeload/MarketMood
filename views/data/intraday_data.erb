@@ -1,32 +1,42 @@
- <h1 class="text-2xl font-semibold text-gray-900">Twitter Sentiment Analysis</h1>
-              <p class="mt-4 text-sm text-gray-500">Content for Twitter sentiment analysis will be displayed here.</p>
+ <div class="text-center">
+     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Intraday Data</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">A table of intraday stock market data.</p>
+    </div>
 
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+     <img src="images/try.png" alt="Intraday" class="w-[25rem]" />
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Ticker</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Open</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">High</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Low</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Close</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Volume</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <% @intraday_data.each do |entry| %>
+              <tr>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-indigo-600"><%= entry["ticker"] %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= entry["data"]["open"] %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= entry["data"]["high"] %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= entry["data"]["low"] %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= entry["data"]["close"] %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= entry["data"]["volume"] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 <% if @error_message %>
   <p><%= @error_message %></p>
 <% else %>
-  <h1>Intraday Data for <%= params[:symbol] %></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Open</th>
-        <th>High</th>
-        <th>Low</th>
-        <th>Close</th>
-        <th>Volume</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @intraday_data.each do |entry| %>
-        <tr>
-          <td><%= entry["date"] %></td>
-          <td><%= entry["data"]["open"] %></td>
-          <td><%= entry["data"]["high"] %></td>
-          <td><%= entry["data"]["low"] %></td>
-          <td><%= entry["data"]["close"] %></td>
-          <td><%= entry["data"]["volume"] %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <!-- The table above will handle the intraday data display -->
 <% end %>

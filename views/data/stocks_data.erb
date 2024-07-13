@@ -1,12 +1,24 @@
-<h1>Stock Data</h1>
-  <ul>
-    <% @stock_data.each do |stock| %>
-      <li>
-        <strong><%= stock['symbol'] %>:</strong>
-        Price: <%= stock['price'] %>,
-        Change: <%= stock['day_change'] %>,
-        Volume: <%= stock['volume'] %>,
-        Currency: <%= stock['currency']%>
-      </li>
-    <% end %>
-  </ul>
+ <div class="text-center">
+     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Stock Prices</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Prices for US-listed stocks </p>
+    </div>
+     <img src="images/stock.png" alt="stocks" class="w-[25rem]" />
+<dl class="mx-auto grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4">
+  <% @stock_data.each do |stock| %>
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
+      <dt class="text-sm font-medium leading-6 text-gray-500">Symbol</dt>
+      <dd class="text-xs font-medium text-gray-700"><%= stock['ticker'] %></dd>
+      <dd class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">Price: <%= stock['price'] %></dd>
+
+      <dt class="text-sm font-medium leading-6 text-gray-500">Change</dt>
+      <dd class="text-xs font-medium text-gray-700"><%= stock['day_change'] %></dd>
+
+      <dt class="text-sm font-medium leading-6 text-gray-500">Volume</dt>
+      <dd class="text-xs font-medium text-gray-700"><%= stock['volume'] %></dd>
+
+      <dt class="text-sm font-medium leading-6 text-gray-500">Currency</dt>
+      <dd class="text-xs font-medium text-gray-700"><%= stock['currency'] %></dd>
+    </div>
+  <% end %>
+</dl>
+</div>

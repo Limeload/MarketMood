@@ -80,7 +80,7 @@ end
 
 get("/dashboard") do
   @finance_data = fetch_finance_news
-  @stock_data = fetch_stock_quote_data("AAPL,TSLA,MSFT")
+  @stock_data = fetch_stock_quote_data("AAPL,TSLA,MSFT,V")
   @intraday_data = fetch_intraday_data("TSLA")  # Example symbol, replace with actual data
   @eod_data = fetch_eod_data("TSLA")            # Example symbol, replace with actual data
   @search_data = fetch_entity_search_data("tsla")
@@ -92,5 +92,3 @@ get("/dashboard") do
 
   erb(:'skeleton/dashboard')
 end
-
-

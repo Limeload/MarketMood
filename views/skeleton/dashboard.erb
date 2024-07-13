@@ -29,8 +29,8 @@
                         </a>
                       </li>
                       <li>
-                        <a href="#" data-content="Twitter Content" class="sidebar-link group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-                          Twitter
+                        <a href="#" data-content="Intraday Content" class="sidebar-link group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
+                          Intraday Data
                         </a>
                       </li>
                       <li>
@@ -93,11 +93,11 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" data-content="Twitter Content" class="sidebar-link group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
+                    <a href="#" data-content="Intraday Content" class="sidebar-link group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                       <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12m-12 6h12m-12 6h12M3.75 6.75h.008v.008H3.75V6.75zm0 6h.008v.008H3.75v-.008zm0 6h.008v.008H3.75v-.008z" />
                       </svg>
-                      Twitter
+                      Intraday data
                     </a>
                   </li>
                   <li>
@@ -175,7 +175,7 @@
             <div id="News Content" class="page-content hidden">
              <%= erb(:'data/news')%>
             </div>
-            <div id="Twitter Content" class="page-content hidden">
+            <div id="Intraday Content" class="page-content hidden">
              <%= erb(:'data/intraday_data')%>
             </div>
             <div id="Historical Content" class="page-content hidden">
@@ -183,11 +183,7 @@
               <p class="mt-4 text-sm text-gray-500">Content for historical sentiment analysis will be displayed here.</p>
             </div>
             <div id="Stock Price Correlation Content" class="page-content hidden">
-              <h1 class="text-2xl font-semibold text-gray-900">Stock Price Correlation</h1>
-              <p class="mt-4 text-sm text-gray-500">Content for stock price correlation will be displayed here.</p>
-              <%= erb(:'skeleton/cards')%>
-
-
+              <%= erb(:'data/stocks_data')%>
             </div>
             <div id="Custom Sentiment Analysis Content" class="page-content hidden">
               <h1 class="text-2xl font-semibold text-gray-900">Custom Sentiment Analysis</h1>
