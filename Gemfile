@@ -1,13 +1,16 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby "2.7.4"
 
 gem "sinatra"
 gem "sinatra-contrib"
 
 # Use Puma as the app server
 gem "puma", "~> 5.0"
+gem "http"
+gem "uri"
+gem 'dotenv'
 
 # use active record
 gem "sinatra-activerecord"

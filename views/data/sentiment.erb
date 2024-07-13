@@ -1,0 +1,74 @@
+<h1> Positive Sentiment </h1>
+<ul>
+  <% @positive_data.each do |news| %>
+    <li>
+      <strong><%= news['title'] %>:</strong>
+       <p><%= news['description'] %></p>
+       <% if news["entities"].any? %>
+
+          <ul>
+            <% news["entities"].each do |entity| %>
+              <li>
+                <strong><%= entity["symbol"] %></strong> - <%= entity["name"] %> (<%= entity["type"] %>)
+              </li>
+              <li> <p>Industry: <%= entity["industry"]%> </li>
+              <li> <p> Match Score: <%= entity["match_score"]%></li>
+              <li> <p> Sentiment Score: <%= entity["sentiment_score"]%></li>
+
+            <% end %>
+          </ul>
+        <% end %>
+        <p><a href="<%= news["url"] %>" target="_blank">Read more</a></p>
+       <br>
+  <% end %>
+</ul>
+
+<h1> Neutral Sentiment </h1>
+<ul>
+  <% @neutral_data.each do |news| %>
+    <li>
+      <strong><%= news['title'] %>:</strong>
+       <p><%= news['description'] %></p>
+       <% if news["entities"].any? %>
+
+          <ul>
+            <% news["entities"].each do |entity| %>
+              <li>
+                <strong><%= entity["symbol"] %></strong> - <%= entity["name"] %> (<%= entity["type"] %>)
+              </li>
+              <li> <p>Industry: <%= entity["industry"]%> </li>
+              <li> <p> Match Score: <%= entity["match_score"]%></li>
+              <li> <p> Sentiment Score: <%= entity["sentiment_score"]%></li>
+
+            <% end %>
+          </ul>
+        <% end %>
+        <p><a href="<%= news["url"] %>" target="_blank">Read more</a></p>
+       <br>
+  <% end %>
+</ul>
+
+<h1> Negative Sentiment </h1>
+<ul>
+  <% @negative_data.each do |news| %>
+    <li>
+      <strong><%= news['title'] %>:</strong>
+       <p><%= news['description'] %></p>
+       <% if news["entities"].any? %>
+
+          <ul>
+            <% news["entities"].each do |entity| %>
+              <li>
+                <strong><%= entity["symbol"] %></strong> - <%= entity["name"] %> (<%= entity["type"] %>)
+              </li>
+              <li> <p>Industry: <%= entity["industry"]%> </li>
+              <li> <p> Match Score: <%= entity["match_score"]%></li>
+              <li> <p> Sentiment Score: <%= entity["sentiment_score"]%></li>
+
+            <% end %>
+          </ul>
+        <% end %>
+        <p><a href="<%= news["url"] %>" target="_blank">Read more</a></p>
+       <br>
+  <% end %>
+</ul>

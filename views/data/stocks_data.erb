@@ -1,0 +1,12 @@
+<h1>Stock Data</h1>
+  <ul>
+    <% @stock_data.each do |stock| %>
+      <li>
+        <strong><%= stock['symbol'] %>:</strong>
+        Price: <%= stock['price'] %>,
+        Change: <%= stock['day_change'] %>,
+        Volume: <%= stock['volume'] %>,
+        Currency: <%= stock['currency']%>
+      </li>
+    <% end %>
+  </ul>

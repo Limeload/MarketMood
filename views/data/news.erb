@@ -1,0 +1,19 @@
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+  <!-- Finance and Market News -->
+  <div class="overflow-hidden rounded-lg bg-gray-200 shadow-sm">
+    <h1 class="px-4 py-3 bg-white border-b">Finance and Market News</h1>
+    <ul class="divide-y divide-gray-200">
+      <% if @finance_data && @finance_data.any? %>
+        <% @finance_data.each do |news| %>
+          <li class="px-4 py-3">
+            <h2 class="text-lg font-semibold"><%= news['title'] %></h2>
+            <p class="mt-2 text-sm text-gray-500"><%= news['description'] %></p>
+            <a href="<%= news['url'] %>" target="_blank" class="block mt-1 text-blue-600 hover:underline">Read more</a>
+          </li>
+        <% end %>
+      <% else %>
+        <li class="px-4 py-3">No news available at the moment.</li>
+      <% end %>
+    </ul>
+  </div>
+</div>

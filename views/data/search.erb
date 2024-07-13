@@ -1,0 +1,36 @@
+<h1>Search Results</h1>
+
+<h2>Entities Found</h2>
+<% if @search_data.empty? %>
+  <p>No entities found.</p>
+<% else %>
+  <ul>
+    <% @search_data.each do |entity| %>
+      <li><%= "#{entity["symbol"]} - #{entity["name"]} (#{entity["type"]})" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Entity Types</h1>
+
+<% if @search_entity.empty? %>
+  <p>No entity types found.</p>
+<% else %>
+  <ul>
+    <% @search_entity.each do |entity_type| %>
+      <li><%= entity_type %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Industries</h1>
+
+<% if @search_industry.empty? %>
+  <p>No industries found.</p>
+<% else %>
+  <ul>
+    <% @search_industry.each do |industry| %>
+      <li><%= industry %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,32 @@
+ <h1 class="text-2xl font-semibold text-gray-900">Twitter Sentiment Analysis</h1>
+              <p class="mt-4 text-sm text-gray-500">Content for Twitter sentiment analysis will be displayed here.</p>
+
+<% if @error_message %>
+  <p><%= @error_message %></p>
+<% else %>
+  <h1>Intraday Data for <%= params[:symbol] %></h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Open</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Close</th>
+        <th>Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @intraday_data.each do |entry| %>
+        <tr>
+          <td><%= entry["date"] %></td>
+          <td><%= entry["data"]["open"] %></td>
+          <td><%= entry["data"]["high"] %></td>
+          <td><%= entry["data"]["low"] %></td>
+          <td><%= entry["data"]["close"] %></td>
+          <td><%= entry["data"]["volume"] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
