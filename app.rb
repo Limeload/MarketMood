@@ -104,3 +104,7 @@ end
 get('/custom') do
   erb(:'data/custom')
 end
+
+get('/intraday') do
+  erb(:'data/intraday_data')
+end

@@ -6,6 +6,7 @@
   <div class="mt-8 flow-root">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
      <img src="images/try.png" alt="Intraday" class="w-[25rem]" />
+     <canvas id="intraday-line-chart" width="150" height="150">
       <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
         <table class="min-w-full divide-y divide-gray-300">
           <thead>
@@ -40,3 +41,41 @@
 <% else %>
   <!-- The table above will handle the intraday data display -->
 <% end %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const intradayData = <%= JSON.generate(@intraday_data) %>;
+    const tickers = intradayData.map(entry => entry.ticker);
+    const openPrices = intradayData.map(entry => entry.data.open);
+
+    const ctx = document.getElementById('intraday-line-chart').getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: tickers,
+          datasets: [{
+            label: 'Open Price',
+            data: openPrices,
+            borderColor: '#4c51bf',
+            borderWidth: 2,
+            pointBackgroundColor: '#7f9cf5',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top'
+            }
+          }
+        }
+      });
+    } else {
+      console.error('Failed to find canvas element or Chart.js context.');
+    }
+  });
+</script>
