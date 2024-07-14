@@ -78,6 +78,14 @@ helpers do
   end
 end
 
+get("/") do
+  erb(:'skeleton/homepage')
+end
+
+get("/about") do
+  erb(:'skeleton/about')
+end
+
 get("/dashboard") do
   @finance_data = fetch_finance_news
   @stock_data = fetch_stock_quote_data("AAPL,TSLA,MSFT,V")
@@ -91,4 +99,8 @@ get("/dashboard") do
   @negative_data = fetch_negative_sentiment_news
 
   erb(:'skeleton/dashboard')
+end
+
+get('/custom') do
+  erb(:'data/custom')
 end

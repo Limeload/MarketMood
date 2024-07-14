@@ -1,0 +1,112 @@
+<div class="flex justify-center">
+<div class="text-center">
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Analyze Finance Data</h2>
+<p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Enter financial data in JSON format to visualize sentiment analysis results as a pie chart.</p>
+</div>
+</div>
+<div class="flex justify-center bg-white py-24 sm:py-32">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+    <div>
+      <form onsubmit="generatePieChart(event)">
+        <div class="space-y-12">
+          <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Finance Data</h2>
+            <p class="mt-1 text-sm leading-6 text-gray-600">Enter the financial data in JSON format for sentiment analysis.</p>
+            <div class="mt-10">
+              <label for="json-data" class="block text-sm font-medium leading-6 text-gray-900">JSON Data</label>
+              <div class="flex items-start mt-2">
+                <div class="flex h-6 items-center">
+                  <input id="pretty-print" name="pretty-print" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" onchange="prettyPrintJSON()">
+                </div>
+                <div class="ml-3 text-sm leading-6">
+                  <label for="pretty-print" class="font-medium text-gray-900">Pretty Print</label>
+                  <p class="text-gray-500">Format the JSON data for readability.</p>
+                </div>
+              </div>
+              <div class="mt-2">
+                <textarea id="json-data" name="json-data" rows="10" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+{"meta":{"source":"stockdata.org"},"data":[{"symbol":"AAPL","price":150.75,"change":-0.25,"volume":12000000},{"symbol":"GOOGL","price":2750.5,"change":15.5,"volume":1500000}]}
+                </textarea>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-gray-600">Ensure the JSON data is in the correct format.</p>
+              <p id="error-message" class="mt-3 text-sm leading-6 text-red-600"></p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <canvas id="pie-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  function prettyPrintJSON() {
+    const textarea = document.getElementById('json-data');
+    const prettyPrintCheckbox = document.getElementById('pretty-print');
+    const errorMessage = document.getElementById('error-message');
+
+    try {
+      const jsonData = JSON.parse(textarea.value.trim());
+      errorMessage.textContent = '';
+      if (prettyPrintCheckbox.checked) {
+        textarea.value = JSON.stringify(jsonData, null, 2);
+      } else {
+        textarea.value = JSON.stringify(jsonData);
+      }
+    } catch (e) {
+      errorMessage.textContent = 'Invalid JSON data. Please correct it.';
+    }
+  }
+
+  function generatePieChart(event) {
+    event.preventDefault();
+    const textarea = document.getElementById('json-data');
+    const errorMessage = document.getElementById('error-message');
+
+    try {
+      const jsonData = JSON.parse(textarea.value.trim());
+      const sentimentData = analyzeSentiment(jsonData);
+      displayPieChart(sentimentData);
+      errorMessage.textContent = '';
+    } catch (e) {
+      errorMessage.textContent = 'Invalid JSON data. Please correct it.';
+    }
+  }
+
+  function analyzeSentiment(data) {
+    // Dummy sentiment analysis function
+    // Replace with actual sentiment analysis logic
+    return {
+      positive: 60,
+      negative: 30,
+      neutral: 10
+    };
+  }
+
+  function displayPieChart(data) {
+    const ctx = document.getElementById('pie-chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Positive', 'Negative', 'Neutral'],
+        datasets: [{
+          data: [data.positive, data.negative, data.neutral],
+          backgroundColor: ['#4c51bf', '#5a67d8', '#7f9cf5']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  }
+</script>
