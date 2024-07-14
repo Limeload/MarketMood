@@ -58,16 +58,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-### Explanation
-
-- **Project Description**: Provides an overview of what the project (Market Mood) is about.
-- **Features**: Lists the main features of the application, giving potential users an idea of its capabilities.
-- **Installation**: Guides users through the steps required to set up and run the application locally.
-- **Usage**: Provides instructions on how to use the application once it's running.
-- **API Integration**: Mentions the integration with stockdata.org API and the requirement for an API key.
-- **Contributing**: Encourages contributions from other developers and outlines the process for contributing.
-- **License**: Specifies the project's licensing information.
-
-
