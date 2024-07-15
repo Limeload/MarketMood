@@ -88,23 +88,14 @@ end
 
 get("/dashboard") do
   @finance_data = fetch_finance_news
-  @stock_data = fetch_stock_quote_data("AAPL,TSLA,MSFT,V")
-  @intraday_data = fetch_intraday_data("TSLA")  # Example symbol, replace with actual data
-  @eod_data = fetch_eod_data("TSLA")            # Example symbol, replace with actual data
+  @stock_data = fetch_stock_quote_data("AAPL,TSLA,MSFT")
+  @intraday_data = fetch_intraday_data("TSLA")
+  @eod_data = fetch_eod_data("TSLA")
   @search_data = fetch_entity_search_data("tsla")
   @search_entity = fetch_entity_type_list
   @search_industry = fetch_industry_list
   @positive_data = fetch_positive_sentiment_news
   @neutral_data = fetch_neutral_sentiment_news
   @negative_data = fetch_negative_sentiment_news
-
   erb(:'skeleton/dashboard')
-end
-
-get('/custom') do
-  erb(:'data/custom')
-end
-
-get('/intraday') do
-  erb(:'data/intraday_data')
 end

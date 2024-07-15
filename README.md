@@ -8,6 +8,11 @@ Market Mood is a Sinatra-based web application designed to provide sentiment ana
 - **Stock Data**: Fetches real-time stock prices, intraday data, and end-of-day historical data.
 - **Sentiment Analysis**: Displays news articles categorized by positive, neutral, and negative sentiment.
 - **Market News**: Provides finance and market news from various sources.
+- **Images**: - Illustrations from `undraw.co`
+
+## Deployment
+
+The application is deployed and can be accessed at [Market Mood](https://marketmood-qpcg.onrender.com).
 
 ## Installation
 
@@ -50,6 +55,7 @@ Market Mood is a Sinatra-based web application designed to provide sentiment ana
 ## API Integration
 
 - This application integrates with the stockdata.org API for fetching financial data and news. Ensure you have a valid API key (`STOCK_DATA_KEY`) in your `.env` file.
+
 
 ## Contributing
 
