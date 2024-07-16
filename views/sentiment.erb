@@ -1,0 +1,14 @@
+<!-- views/sentiment.erb -->
+<h1>Sentiment Analysis for <%= params[:ticker] %></h1>
+<h2>News Sentiment</h2>
+<ul>
+  <% @sentiment[:news_sentiment].each do |article| %>
+    <li><strong><%= article[:title] %></strong> - <%= article[:sentiment] %> (Score: <%= article[:score] %>)</li>
+  <% end %>
+</ul>
+<h2>Twitter Sentiment</h2>
+<ul>
+  <% @sentiment[:twitter_sentiment].each do |tweet| %>
+    <li><%= tweet[:text] %> - <%= tweet[:sentiment] %> (Score: <%= tweet[:score] %>)</li>
+  <% end %>
+</ul>

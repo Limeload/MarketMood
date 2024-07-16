@@ -1,0 +1,7 @@
+<!-- views/news.erb -->
+<h1>Latest News</h1>
+<ul>
+  <% @news['results'].each do |article| %>
+    <li><a href="<%= article['article_url'] %>"><%= article['title'] %></a></li>
+  <% end %>
+</ul>

@@ -86,9 +86,11 @@ GEM
     http-form_data (2.3.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
+    json (2.7.2)
     llhttp-ffi (0.5.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
+    logger (1.6.0)
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
@@ -121,6 +123,10 @@ GEM
     rack-test (2.1.0)
       rack (>= 1.3)
     rake (13.2.1)
+    redis (5.2.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.2)
+      connection_pool
     regexp_parser (2.9.2)
     rexml (3.3.1)
       strscan
@@ -150,6 +156,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentimental (1.5.0)
+    sidekiq (7.3.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
     sinatra (3.2.0)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -204,10 +217,14 @@ DEPENDENCIES
   grade_runner
   http
   i18n
+  json
   pry
   puma (~> 5.0)
+  redis
   rspec
   rspec-html-matchers
+  sentimental
+  sidekiq
   sinatra
   sinatra-activerecord
   sinatra-contrib
