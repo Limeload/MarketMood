@@ -5,6 +5,10 @@ ruby "2.7.4"
 
 gem "sinatra"
 gem "sinatra-contrib"
+gem "json"
+gem "sentimental", require: "sentimental"
+gem "sidekiq"
+gem "redis"
 
 # Use Puma as the app server
 gem "puma", "~> 5.0"

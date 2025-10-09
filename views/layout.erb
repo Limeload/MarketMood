@@ -1,26 +1,11 @@
+<!-- views/layout.erb -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Market Mood</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-     <link rel="stylesheet" type="text/css" href="/css/style.css">
-      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <title>Finance Sentiment Analysis App</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%= yield %>
+</body>
 </html>
